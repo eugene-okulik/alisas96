@@ -1,5 +1,5 @@
 string_1 = 'результат операции: 42'
-string_2 ='результат операции: 514'
+string_2 = 'результат операции: 514'
 string_3 = 'результат работы программы: 9'
 string_1_index = string_1.index(':') + 2
 string_2_index = string_2.index(':') + 2
