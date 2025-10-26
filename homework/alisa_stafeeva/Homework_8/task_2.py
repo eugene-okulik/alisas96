@@ -16,4 +16,4 @@ for number in progression():
         print(number)
     if count > 100000:
         break
-    count +=1
+    count += 1
