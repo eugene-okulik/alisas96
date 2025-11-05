@@ -14,7 +14,7 @@ def select_operation(func):
         return result
 
     return wrapper
-        
+
 
 @select_operation
 def calc(first, second, operation):
@@ -26,6 +26,7 @@ def calc(first, second, operation):
         return first - second
     elif operation == '/':
         return first / second
+
 
 first, second = int(input('Enter first number:')), int(input('Enter second number:'))
 print(calc(first, second))
