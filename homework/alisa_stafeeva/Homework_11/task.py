@@ -14,7 +14,7 @@ class Book:
 
     def unreserve(self):
         self.reserved = False
-    
+
     def print_info(self):
         reserved_text = ', зарезервирована' if self.reserved else ''
         print(
@@ -29,7 +29,6 @@ class SchoolBook(Book):
         self.subject = subject
         self.class_number = class_number
         self.tasks = tasks
-
 
     def print_info(self):
         reserved_text = ', зарезервирована' if self.reserved else ''
