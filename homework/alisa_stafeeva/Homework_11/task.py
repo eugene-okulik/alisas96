@@ -2,7 +2,6 @@ class Book:
     page_material = 'бумага'
     text_presence = True
 
-
     def __init__(self, title, author, pages, isbn, reserved):
         self.title = title
         self.author = author
@@ -10,19 +9,16 @@ class Book:
         self.isbn = isbn
         self.reserved = reserved
 
-
     def reserve(self):
         self.reserved = True
 
-
     def unreserve(self):
         self.reserved = False
-
     
     def print_info(self):
         reserved_text = ', зарезервирована' if self.reserved else ''
         print(
-            f'Название: {self.title}, Автор: {self.author}, страниц: {self.pages},'
+            f'Название: {self.title}, Автор: {self.author}, страниц: {self.pages}, '
             f' материал: {self.page_material}{reserved_text}'
         )
 
@@ -38,7 +34,7 @@ class SchoolBook(Book):
     def print_info(self):
         reserved_text = ', зарезервирована' if self.reserved else ''
         print(
-            f'Название: {self.title}, Автор: {self.author}, страниц: {self.pages},'
+            f'Название: {self.title}, Автор: {self.author}, страниц: {self.pages}, '
             f' предмет: {self.subject}, класс: {self.class_number}{reserved_text}'
         )
 
