@@ -8,7 +8,7 @@ class Flowers:
 
     def __str__(self):
         return f"{self.name}({self.color}, {self.price}, {self.stem_length}, {self.lifetime})"
-    
+
     def __repr__(self):
         return f"{self.name}({self.color}, {self.price}, {self.stem_length}, {self.lifetime})"
 
@@ -34,13 +34,13 @@ class Bouquet:
 
     def bouquet_lifetime(self):
         return sum(flower.lifetime for flower in self.flowers) / len(self.flowers)
-    
+
     def bouquet_price(self):
         return sum(flower.price for flower in self.flowers)
-        
+
     def sort_by(self, attribute):
         return sorted(self.flowers, key=lambda flower: getattr(flower, attribute))
-    
+
     def find_by(self, attribute, value):
         return list(flower for flower in self.flowers if getattr(flower, attribute) == value)
 
