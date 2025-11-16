@@ -3,7 +3,7 @@ import datetime
 
 
 base_path = os.path.dirname(__file__)
-homework_path  = os.path.dirname(os.path.dirname(base_path))
+homework_path = os.path.dirname(os.path.dirname(base_path))
 okulik_file_path = os.path.join(homework_path, 'eugene_okulik', 'hw_13', 'data.txt')
 print(okulik_file_path)
 
