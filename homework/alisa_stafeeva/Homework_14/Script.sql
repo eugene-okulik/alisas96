@@ -1,6 +1,8 @@
-INSERT INTO students (name, second_name, group_id) VALUES ('Ivan', 'Petrov', 21524)
+INSERT INTO students (name, second_name) VALUES ('Ivan', 'Petrov')
  
 INSERT INTO `groups` (title, start_date, end_date) VALUES ('Smart people', 'nov 2025', 'jan 2026')
+
+UPDATE students SET group_id = 21524 WHERE id = 21633
 
 INSERT INTO books (title, taken_by_student_id) VALUES ('7 steps to stable self-esteem', 21633)
 
@@ -41,6 +43,8 @@ INSERT INTO subjects (title) VALUES ('English')
 SELECT * FROM marks WHERE student_id = 21633
 
 SELECT * FROM books WHERE taken_by_student_id = 21633
+
+SELECT * FROM `groups` WHERE title = 'Smart people'
 
 SELECT s.name, s.second_name, g.title, g.start_date, g.end_date, b.title, m.value, l.title, s2.title   
 FROM students s 
