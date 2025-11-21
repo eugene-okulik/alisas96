@@ -19,21 +19,24 @@ cursor.execute(
 )
 group_id = cursor.lastrowid
 cursor.execute(f"UPDATE students SET group_id = {group_id} WHERE id = {student_id}")
-cursor.execute(
-    "INSERT INTO books (title, taken_by_student_id) VALUES ('7 steps to stable self-esteem', NULL)"
-)
 
-book1_id = cursor.lastrowid
-cursor.execute(
-    "INSERT INTO books (title, taken_by_student_id) VALUES ('5 steps to become rich', NULL)"
+insert_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, NULL)"
+cursor.executemany(
+    insert_query,
+    [
+        ("7 steps to stable self-esteem",),
+        ("5 steps to become rich",),
+        ("Love language",),
+    ],
 )
-book2_id = cursor.lastrowid
-cursor.execute(
-    "INSERT INTO books (title, taken_by_student_id) VALUES ('Love language', NULL)"
-)
-book3_id = cursor.lastrowid
-cursor.execute(
-    f"UPDATE books SET taken_by_student_id = {student_id} WHERE id = {book1_id} OR id = {book2_id} OR id = {book3_id}"
+update_query = "UPDATE books SET taken_by_student_id = %s WHERE title = %s"
+cursor.executemany(
+    update_query,
+    [
+        (student_id, "7 steps to stable self-esteem"),
+        (student_id, "5 steps to become rich"),
+        (student_id, "Love language"),
+    ],
 )
 
 cursor.execute("INSERT INTO subjects (title) VALUES ('Philosophy')")
@@ -68,30 +71,18 @@ cursor.execute(
 )
 past_simple_lesson_id = cursor.lastrowid
 
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (5, {ancient_greeks_lesson_id}, {student_id})"
+insert_query2 = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
+cursor.executemany(
+    insert_query2,
+    [
+        (5, ancient_greeks_lesson_id, student_id),
+        (4, immanuel_kant_lesson_id, student_id),
+        (4, renaissance_lesson_id, student_id),
+        (3, antiquity_lesson_id, student_id),
+        (2, present_simple_lesson_id, student_id),
+        (5, past_simple_lesson_id, student_id),
+    ],
 )
-ancient_greeks_mark_id = cursor.lastrowid
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (4, {immanuel_kant_lesson_id}, {student_id})"
-)
-immanuel_kant_mark_id = cursor.lastrowid
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (4, {renaissance_lesson_id}, {student_id})"
-)
-renaissance_mark_id = cursor.lastrowid
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (3, {antiquity_lesson_id}, {student_id})"
-)
-antiquity_mark_id = cursor.lastrowid
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (2, {present_simple_lesson_id}, {student_id})"
-)
-present_simple_mark_id = cursor.lastrowid
-cursor.execute(
-    f"INSERT INTO marks (value, lesson_id, student_id) VALUES (2, {past_simple_lesson_id}, {student_id})"
-)
-past_simple_mark_id = cursor.lastrowid
 
 db.commit()
 
