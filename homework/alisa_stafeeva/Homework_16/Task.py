@@ -17,11 +17,11 @@ cursor = db.cursor(dictionary=True)
 
 cursor.execute(
     """SELECT s.name, s.second_name,
-	g.title AS group_title, b.title AS book_title,
-	s2.title AS subject_title, l.title AS lesson_title,
-	m.value AS mark_value
-	FROM students s
-	JOIN `groups` g ON s.group_id = g.id
+    g.title AS group_title, b.title AS book_title,
+    s2.title AS subject_title, l.title AS lesson_title,
+    m.value AS mark_value
+    FROM students s
+    JOIN `groups` g ON s.group_id = g.id
     JOIN books b ON s.id = b.taken_by_student_id
     JOIN marks m ON s.id = m.student_id
     JOIN lessons l ON m.lesson_id  = l.id
