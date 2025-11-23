@@ -39,7 +39,6 @@ with open(okulik_file_path, newline="") as csv_file:
     file_data = csv.DictReader(csv_file)
     data = []
     for row in file_data:
-        row["mark_value"] = int(row["mark_value"])
         if row not in query:
             data.append(row)
 
