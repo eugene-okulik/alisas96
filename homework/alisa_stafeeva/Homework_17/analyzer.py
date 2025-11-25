@@ -16,9 +16,10 @@ for file_name in os.listdir(args.path):
             if args.text in line:
                 line_list = line.split()
                 text_index = line_list.index(args.text)
+                # fmt: off
                 needed_line = (
-                    line_list[text_index - 5 : text_index]
-                    + line_list[text_index : text_index + 6]
+                    line_list[text_index - 5:text_index]
+                    + line_list[text_index:text_index + 6]
                 )
                 needed_line = " ".join(needed_line)
                 print(file_name, line_number, needed_line)
