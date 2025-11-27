@@ -1,5 +1,6 @@
 import os
 import argparse
+from colorama import init, Fore, Style
 
 
 parser = argparse.ArgumentParser()
@@ -16,10 +17,11 @@ for file_name in os.listdir(args.path):
             if args.text in line:
                 line_list = line.split()
                 text_index = line_list.index(args.text)
-                # fmt: off
-                needed_line = (
-                    line_list[text_index - 5:text_index]
-                    + line_list[text_index:text_index + 6]
-                )
+                index_start = max(text_index - 5, 0)
+                index_end = min(text_index + 6, len(line_list))
+                needed_line = line_list[index_start:index_end]
                 needed_line = " ".join(needed_line)
-                print(file_name, line_number, needed_line)
+                old_list = line_list
+                print(
+                    f"{Fore.CYAN}{file_name}{Style.RESET_ALL}, строка {Fore.MAGENTA}{line_number}{Style.RESET_ALL}: {needed_line}"
+                )
