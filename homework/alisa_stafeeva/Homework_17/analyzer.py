@@ -23,5 +23,6 @@ for file_name in os.listdir(args.path):
                 needed_line = " ".join(needed_line)
                 old_list = line_list
                 print(
-                    f"{Fore.CYAN}{file_name}{Style.RESET_ALL}, строка {Fore.MAGENTA}{line_number}{Style.RESET_ALL}: {needed_line}"
+                    f"{Fore.CYAN}{file_name}{Style.RESET_ALL}, "
+                    f"строка {Fore.MAGENTA}{line_number}{Style.RESET_ALL}: {needed_line}"
                 )
