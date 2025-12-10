@@ -23,10 +23,3 @@ class UpdateObject(Endpoint):
             f"{self.url}/{object_id}", json=body, headers=headers
         )
         return self.response
-
-    @allure.feature("Existing object")
-    @allure.story("Delete an object")
-    @allure.title("Удалить объект")
-    def delete_an_object(self, object_id):
-        self.response = requests.delete(f"{self.url}/{object_id}")
-        return self.response
