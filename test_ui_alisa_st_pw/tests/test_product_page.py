@@ -1,7 +1,7 @@
 def test_add_item_to_cart(opened_product, product_page, cart_page):
     chosen_item_text = product_page.get_item_name_text()
     product_page.add_to_cart()
-    product_page.check_cart_counter_equals_qty_of_items('1')
+    product_page.check_cart_counter_equals_qty_of_items("1")
     product_page.open_cart()
     cart_page.check_chosen_item_in_cart(chosen_item_text)
 

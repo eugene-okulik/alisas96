@@ -5,7 +5,7 @@ from pages.locators import cart_page_locators as cart_loc
 
 
 class CartPage(BasePage):
-    page_url = 'shop/cart'
+    page_url = "shop/cart"
 
     def check_chosen_item_in_cart(self, requested_text):
         item_in_cart = self.find(cart_loc.item_in_cart_loc)
@@ -28,4 +28,4 @@ class CartPage(BasePage):
         checkout_button.click()
 
     def check_there_is_a_shipping_form(self):
-        expect(self.page).to_have_url(re.compile('address'))
+        expect(self.page).to_have_url(re.compile("address"))

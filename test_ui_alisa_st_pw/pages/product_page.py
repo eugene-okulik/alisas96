@@ -4,14 +4,14 @@ from pages.locators import product_page_locators as prod_loc
 
 
 class ProductPage(BasePage):
-    page_url = 'shop/furn-9999-office-design-software-7'
+    page_url = "shop/furn-9999-office-design-software-7"
 
     def add_to_cart(self):
         self.find(prod_loc.add_to_cart_button_loc).click()
 
     def open_cart(self):
         self.find(prod_loc.cart_loc).click()
-    
+
     def get_item_name_text(self):
         return self.find(prod_loc.item_loc).text_content()
 
@@ -23,4 +23,4 @@ class ProductPage(BasePage):
     def enter_item_name_in_search_string(self, item_name):
         search_string = self.find(prod_loc.search_string_loc)
         search_string.fill(item_name)
-        search_string.press('Enter')
+        search_string.press("Enter")

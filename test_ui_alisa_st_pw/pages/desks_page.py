@@ -29,7 +29,9 @@ class DesksPage(BasePage):
         sort_by_price.click()
 
     def check_sorted_by_price_low_to_high(self):
-        price_list = [float(price.replace(",", "")) for price in self.prices().all_text_contents()]
+        price_list = [
+            float(price.replace(",", "")) for price in self.prices().all_text_contents()
+        ]
         assert sorted(price_list) == price_list
 
     def add_desk_to_cart(self):

@@ -7,7 +7,7 @@ from pages.desks_page import DesksPage
 
 
 @pytest.fixture()
-def product_page(page:Page):
+def product_page(page: Page):
     return ProductPage(page)
 
 
@@ -30,7 +30,7 @@ def desks_page(page):
 def add_item_to_cart(product_page):
     product_page.open_page()
     product_page.add_to_cart()
-    product_page.check_cart_counter_equals_qty_of_items('1')
+    product_page.check_cart_counter_equals_qty_of_items("1")
 
 
 @pytest.fixture()
